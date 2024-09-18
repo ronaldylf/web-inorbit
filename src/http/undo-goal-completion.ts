@@ -1,3 +1,5 @@
+import { getBackEndHost } from '../utils/get-backend-host'
+
 interface UndoGoalCompletionRequest {
   completionId: string
 }
@@ -5,7 +7,7 @@ interface UndoGoalCompletionRequest {
 export async function undoGoalCompletion({
   completionId,
 }: UndoGoalCompletionRequest) {
-  await fetch(`http://localhost:3333/completions/${completionId}`, {
+  await fetch(`${getBackEndHost()}/completions/${completionId}`, {
     method: 'DELETE',
   })
 }
